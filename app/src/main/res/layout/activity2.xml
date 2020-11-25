@@ -6,16 +6,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
+    <EditText
         android:id="@+id/nombreTabla"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="76dp"
-        android:text=""
-        android:textStyle="bold"
+        android:layout_marginTop="44dp"
+        android:autofillHints="@string/nombre_tabla_hint"
+        android:hint="@string/nombre_tabla_hint"
         android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -23,13 +24,14 @@
         android:id="@+id/datosTabla"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:text=""
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/button_crear_tabla"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.196" />
+        app:layout_constraintVertical_bias="0.187" />
 
     <Button
         android:id="@+id/button_crear_tabla"
@@ -37,7 +39,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="32dp"
         android:text="@string/boton_crear_tabla"
-        android:onClick="crearTabla"
+        android:onClick="crearTablas"
         app:layout_constraintBottom_toTopOf="@+id/button_insertar_datos"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"

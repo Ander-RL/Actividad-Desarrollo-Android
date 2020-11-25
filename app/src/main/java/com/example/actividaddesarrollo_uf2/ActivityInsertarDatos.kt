@@ -1,5 +1,6 @@
 package com.example.actividaddesarrollo_uf2
 
+import android.content.ContentValues
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -7,6 +8,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.room.Room
+import kotlinx.android.synthetic.main.activity2.*
 import kotlinx.android.synthetic.main.activity_insertar_datos.*
 
 class ActivityInsertarDatos : AppCompatActivity() {
@@ -27,32 +29,51 @@ class ActivityInsertarDatos : AppCompatActivity() {
 
     fun insertarDB(view: View) {
         if (inputCheck()) {
-            val id = editTextId.text.toString().toInt()
-            val nombre = editTextNombre.text.toString()
-            val direc = editTextDireccion.text.toString()
-            val codPost = editTextCodPostal.text.toString().toInt()
-            val numTelf = editTextNumTelf.text.toString().toInt()
 
-            val sharedPref = getSharedPreferences("tablaNombreDatos", Context.MODE_PRIVATE)
+            val nombreTabla = editTextNombreTabla.text.toString()
+            val codigo = editTextCodigo.text.toString().toInt()
+            val descripcion = editTextDescripcion.text.toString()
+            val precio = editTextPrecio.text.toString().toDouble()
 
-            sharedPref.edit().putInt("id", id).apply()
-            sharedPref.edit().putString("nombre", nombre).apply()
-            sharedPref.edit().putString("direc", direc).apply()
-            sharedPref.edit().putInt("codPost", codPost).apply()
-            sharedPref.edit().putInt("numTelf", numTelf).apply()
+            val tabla = SQLiteOpenHelperBD(this, "BBDD", null, 1)
+            val bd = tabla.writableDatabase
+            val registro = ContentValues()
+            registro.put("codigo", codigo)
+            registro.put("descripcion", descripcion)
+            registro.put("precio", precio)
+            bd.insert(nombreTabla, null, registro)
+            bd.close()
+
+            editTextNombreTabla.setText("")
+            editTextCodigo.setText("")
+            editTextDescripcion.setText("")
+            editTextPrecio.setText("")
 
         } else {
             Toast.makeText(this, getString(R.string.insertarDatos_Toast), Toast.LENGTH_LONG).show()
         }
-
-
     }
 
     fun inputCheck(): Boolean {
-        return !(editTextId.text.isEmpty() &&
-                editTextNombre.text.isEmpty() &&
-                editTextDireccion.text.isEmpty() &&
-                editTextCodPostal.text.isEmpty() &&
-                editTextNumTelf.text.isEmpty())
+        return !(editTextNombreTabla.text.isEmpty() &&
+                editTextCodigo.text.isEmpty() &&
+                editTextDescripcion.text.isEmpty() &&
+                editTextPrecio.text.isEmpty())
     }
+
+    /*override fun onPause() {
+
+        val nombreTabla = editTextNombreTabla.text.toString()
+        val codigo = editTextCodigo.text.toString().toInt()
+        val descripcion = editTextDescripcion.text.toString()
+        val precio = editTextPrecio.text.toString().toDouble()
+
+        val sharedPref = getPreferences(Context.MODE_PRIVATE)
+        sharedPref.edit().putString("nombreTabla", nombreTabla).apply()
+        sharedPref.edit().putInt("codigo", codigo).apply()
+        sharedPref.edit().putString("descripcion", descripcion).apply()
+        sharedPref.edit().putFloat("precio", precio.toFloat()).apply()
+
+        super.onPause()
+    }*/
 }

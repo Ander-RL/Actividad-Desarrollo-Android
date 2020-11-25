@@ -32,8 +32,9 @@ class Activity2 : AppCompatActivity() {
         startActivity(intent)
     }
 
-    fun crearTabla(view: View) {
-        nombreTabla.text = "Tabla Clientes creada"
+    fun crearTablas(view: View) {
+        val intent = Intent(this, ActivityCrearTabla::class.java)
+        startActivity(intent)
     }
 
     fun insertarDatos(view: View) {
@@ -43,30 +44,24 @@ class Activity2 : AppCompatActivity() {
 
     fun mostrarDatos(view: View) {
 
-        Thread {
-            val cliente = ClientesEntity(id, nombre, direc, codPost, numTelf)
-            val db =
-                Room.databaseBuilder(applicationContext, ClientesDB::class.java, "clientes.db")
-                    .build()
-            db.clientesDao.nuevoCliente(cliente)
+        val nombreTabla = nombreTabla.text.toString()
+        //val codigo = codigoRegistro.text.toString().toInt()
 
-            db.clientesDao.getClientes().forEach {
-                //datosTabla.text =
-                    texto += ("\n" + it.id.toString() + it.nombre.toString() + it.direccion.toString() + it.codPostal.toString() + it.numTelf.toString())
-            }
-            datosTabla.text = texto
-        }.start()
+        val tabla = SQLiteOpenHelperBD(this, "BBDD", null, 1)
+        val bd = tabla.writableDatabase
+        val fila = bd.rawQuery("SELECT * FROM tabla;", null)
+        var imprimir = ""
+        if (fila.moveToFirst()) {
+            do {
+                imprimir += "\n" + fila.getString(0)+ " " + fila.getString(1) + " " + fila.getString(2)
+                //datosTabla.setText(fila.getString(0) + fila.getString(1) + fila.getString(2))
+            } while (fila.moveToNext())
+        }
+        datosTabla.setText(imprimir)
+        bd.close()
     }
 
     override fun onResume() {
         super.onResume()
-
-        val sharedPref = getSharedPreferences("tablaNombreDatos", Context.MODE_PRIVATE)
-        id = sharedPref.getInt("id", 0)
-        nombre = sharedPref.getString("nombre", "").toString()
-        direc = sharedPref.getString("direc", "").toString()
-        codPost = sharedPref.getInt("codPost", 0)
-        numTelf = sharedPref.getInt("numTelf", 0)
-
     }
 }

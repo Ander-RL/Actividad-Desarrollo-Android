@@ -9,6 +9,13 @@
     <string name="autofill_nombreTabla">Introduce el nombre de la tabla</string>
     <string name="no_nombre_tabla">No se ha introducido el nombre de la tabla</string>
     <string name="no_datos">No se han introducido datos</string>
+    <string name="codigo_registro">Inserta el codigo del registro</string>
+
+    <!-- CREAR TABLAS -->
+    <string name="nombre_tabla_hint">Inserta el nombre de la tabla</string>
+    <string name="nombre_codigo_hint">Inserta el nombre de la Primary Key</string>
+    <string name="nombre_descripcion_hint">Inserta el nombre de la segunda columna</string>
+    <string name="nombre_precio_hint">Inserta el nombre de la tercera columna</string>
 
     <!-- BOTONES -->
     <string name="boton_ir_a_activity_2">Ir a Activity 2</string>
@@ -24,11 +31,10 @@
     <string name="boton_bloquear">Bloquear</string>
 
     <!-- INSERTAR DATOS BBDD -->
-    <string name="editText_id_cliente">Introduce el Id</string>
-    <string name="editText_nombre_cliente">Introduce el nombre</string>
-    <string name="editText_direccion_cliente">Introduce la dirección</string>
-    <string name="editText_codPostal_cliente">Introduce el código postal</string>
-    <string name="editText_numTelf_cliente">Introduce el número de telefono</string>
-    <string name="textView_insertarDatos">Introduce los datos del cliente</string>
+    <string name="editText_nombre_tabla">Introduce el nombre de la tabla</string>
+    <string name="editText_codigo">Introduce el codigo del registro</string>
+    <string name="editText_descripcion">Introduce la descripcion del registro</string>
+    <string name="editText_precio">Introduce el precio del registro</string>
+    <string name="textView_insertarDatos">Por favor rellena todos los campos</string>
     <string name="insertarDatos_Toast">Por favor rellena todos los campos</string>
 </resources>

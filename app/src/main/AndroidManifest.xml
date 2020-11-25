@@ -18,8 +18,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity android:name=".Activity2" />
+
         <activity android:name=".Activity3" />
+
+        <activity android:name=".ActivityCrearTabla"
+            android:parentActivityName="com.example.actividaddesarrollo_uf2.Activity2" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.actividaddesarrollo_uf2.Activity2" />
+        </activity>
+
         <activity
             android:name=".ActivityInsertarDatos"
             android:parentActivityName="com.example.actividaddesarrollo_uf2.Activity2">
