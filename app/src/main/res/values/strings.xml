@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">ActividadDesarrollo_UF2</string>
+    <string name="activity1_bienvenido">¡Bienvenido a Activity 1!</string>
+    <string name="activity1_contenDescription_imagen">Imagen de un Smartphone</string>
+    <string name="numero_columnas">Inserta el número de columnas</string>
+    <string name="numero_columnas_hint">introduce un número</string>
+    <string name="numero_filas">inserta el número de filas</string>
+    <string name="hint_edit_text_tabla">Introduce los datos que quieras</string>
+    <string name="autofill_nombreTabla">Introduce el nombre de la tabla</string>
+    <string name="no_nombre_tabla">No se ha introducido el nombre de la tabla</string>
+    <string name="no_datos">No se han introducido datos</string>
+
+    <!-- BOTONES -->
+    <string name="boton_ir_a_activity_2">Ir a Activity 2</string>
+    <string name="boton_ir_a_activity_3">Ir a Activity 3</string>
+    <string name="boton_crear_tabla">Crear Tabla</string>
+    <string name="boton_insertar_datos">Insertar Datos</string>
+    <string name="boton_mostrar_datos">Mostrar Datos</string>
+    <string name="boton_volver_a_activity1">Volver a Activity1</string>
+    <string name="boton_volver_a_activity2">Volver a Activity2</string>
+    <string name="boton_enviar">enviar</string>
+    <string name="boton_play">Play Música</string>
+    <string name="boton_stop">Stop Música</string>
+    <string name="boton_bloquear">Bloquear</string>
+
+    <!-- INSERTAR DATOS BBDD -->
+    <string name="editText_id_cliente">Introduce el Id</string>
+    <string name="editText_nombre_cliente">Introduce el nombre</string>
+    <string name="editText_direccion_cliente">Introduce la dirección</string>
+    <string name="editText_codPostal_cliente">Introduce el código postal</string>
+    <string name="editText_numTelf_cliente">Introduce el número de telefono</string>
+    <string name="textView_insertarDatos">Introduce los datos del cliente</string>
+    <string name="insertarDatos_Toast">Por favor rellena todos los campos</string>
+</resources>

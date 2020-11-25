@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/button_play"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="236dp"
+        android:text="Crear Servicio"
+        android:onClick="crearServicio"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button_stop"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="Detener Servicio"
+        android:onClick="stopService"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_play" />
+
+    <Button
+        android:id="@+id/button_block"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="Volver Activity 1"
+        android:onClick="volverActivity1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_stop" />
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/button_play"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RadioButton
+            android:id="@+id/radioButton"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Play"
+            android:onClick="playMusic"/>
+
+        <RadioButton
+            android:id="@+id/radioButton2"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Stop"
+            android:onClick="stopMusic"/>
+
+        <RadioButton
+            android:id="@+id/radioButton3"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Pause"
+            android:onClick="pauseMusic"/>
+    </RadioGroup>
+</androidx.constraintlayout.widget.ConstraintLayout>
