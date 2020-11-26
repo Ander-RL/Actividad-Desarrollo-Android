@@ -18,21 +18,15 @@ class ActivityCrearTabla : AppCompatActivity() {
     fun crearTabla(view: View) {
 
         var nombreTabla: String = editTextNombreTabla.text.toString()
-        var nombrePrimeryKey: String = editTextCodigo.text.toString()
-        var descripcionProducto: String = editTextDescripcion.text.toString()
-        var precioProducto: String = editTextPrecio.text.toString()
 
         if (inputCheck()) {
             val tabla = SQLiteOpenHelperBD(this, "BBDD", null, 1)
             val bd = tabla.writableDatabase
             bd.execSQL("CREATE TABLE IF NOT EXISTS $nombreTabla (codigo INT PRIMARY KEY, descripcion TEXT, precio DOUBLE);")
-            //val creacion = ContentValues()
-            //tabla.setnombreTabla(nombreTabla)
-            //tabla.setnombrePrimaryKey(nombrePrimeryKey)
-            //tabla.setnombreDescripcion(descripcionProducto)
-            //tabla.setnombrePrecio(precioProducto)
 
-            Toast.makeText(this, "Se creó la tabla", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Tabla Creada", Toast.LENGTH_SHORT).show()
+
+            editTextNombreTabla.setText("")
         } else {
             Toast.makeText(this, getString(R.string.insertarDatos_Toast), Toast.LENGTH_LONG).show()
         }
@@ -40,18 +34,12 @@ class ActivityCrearTabla : AppCompatActivity() {
 
     fun volverActivity2(view: View) {
         editTextNombreTabla.setText("")
-        editTextCodigo.setText("")
-        editTextDescripcion.setText("")
-        editTextPrecio.setText("")
 
         val intent = Intent(this, Activity2::class.java)
         startActivity(intent)
     }
 
     fun inputCheck(): Boolean {
-        return !(editTextNombreTabla.text.isEmpty() &&
-                editTextCodigo.text.isEmpty() &&
-                editTextDescripcion.text.isEmpty() &&
-                editTextPrecio.text.isEmpty())
+        return (editTextNombreTabla.text.isNotEmpty())
     }
 }

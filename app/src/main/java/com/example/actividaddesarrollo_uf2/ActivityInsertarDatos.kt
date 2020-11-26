@@ -13,8 +13,6 @@ import kotlinx.android.synthetic.main.activity_insertar_datos.*
 
 class ActivityInsertarDatos : AppCompatActivity() {
 
-    //private val dao = ClientesDB.buildDefault(application).clienteDao
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -60,20 +58,4 @@ class ActivityInsertarDatos : AppCompatActivity() {
                 editTextDescripcion.text.isEmpty() &&
                 editTextPrecio.text.isEmpty())
     }
-
-    /*override fun onPause() {
-
-        val nombreTabla = editTextNombreTabla.text.toString()
-        val codigo = editTextCodigo.text.toString().toInt()
-        val descripcion = editTextDescripcion.text.toString()
-        val precio = editTextPrecio.text.toString().toDouble()
-
-        val sharedPref = getPreferences(Context.MODE_PRIVATE)
-        sharedPref.edit().putString("nombreTabla", nombreTabla).apply()
-        sharedPref.edit().putInt("codigo", codigo).apply()
-        sharedPref.edit().putString("descripcion", descripcion).apply()
-        sharedPref.edit().putFloat("precio", precio.toFloat()).apply()
-
-        super.onPause()
-    }*/
 }
