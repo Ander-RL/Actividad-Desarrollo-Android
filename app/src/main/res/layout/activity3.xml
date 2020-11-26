@@ -69,7 +69,7 @@
             android:id="@+id/radioButton3"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:text="Pause"
+            android:text="Sleep"
             android:onClick="pauseMusic"/>
     </RadioGroup>
 </androidx.constraintlayout.widget.ConstraintLayout>

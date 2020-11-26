@@ -10,20 +10,22 @@ import android.os.Build
 import android.os.IBinder
 import android.widget.Toast
 import androidx.core.app.NotificationCompat
+import kotlin.concurrent.thread
 
 class MusicaPlayer : Service() {
 
     private val CANAL_ID = "canalNotificacionMusica"
 
-    private val player: MediaPlayer? = null
+    private var player: MediaPlayer? = null
+
+    override fun onCreate() {
+        super.onCreate()
+        player = MediaPlayer.create(this, R.raw.cancion)
+    }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
 
         val accion = intent?.getIntExtra("accion", 1)
-
-        Toast.makeText(this,"Servicio Iniciado", Toast.LENGTH_LONG).show()
-
-        val player: MediaPlayer = MediaPlayer.create(this, R.raw.cancion)
 
         createNotificationChannel()
 
@@ -38,23 +40,41 @@ class MusicaPlayer : Service() {
 
         startForeground(1, notification)
 
+        player?.start()
+
         Thread {
             run {
                 if (accion == 1) {
-                    player.start()
+                    startMusic()
                 }
                 if (accion == 2){
-                    player.stop()
-                    player.release()
+                    stopMusic()
                 }
                 if (accion == 3){
-                    player.pause()
+                    sleepMusic()
                 }
             }
         }.start()
 
-        //return START_NOT_STICKY
         return super.onStartCommand(intent, flags, startId)
+    }
+
+    fun startMusic(){
+        if(player?.isPlaying == false) {
+            player?.start()
+        }
+    }
+
+    fun stopMusic(){
+        if(player?.isPlaying == true)
+        {
+        player?.stop()
+        player?.release()
+        }
+    }
+
+    fun sleepMusic(){
+        Thread.sleep(15000)
     }
 
     override fun onDestroy() {
